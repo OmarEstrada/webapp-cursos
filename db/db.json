@@ -7,14 +7,14 @@
 			"url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
 		},
 		{
-			"nombre": "HTML Básico",
-			"descripcion": "Curso básico de HTML en freecodecamp",
+			"nombre": "HTML Avanzado",
+			"descripcion": "Curso avanzado de HTML en freecodecamp",
 			"url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
 		},
 		{
-			"nombre": "HTML Básico",
-			"descripcion": "Curso básico de HTML en freecodecamp",
-			"url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
+			"nombre": "CSS Moderno",
+			"descripcion": "CSS Moderno en Platzi.",
+			"url": "https://platzi.com/CSS-Moderno"
 		}
 	],
 	"Rutas": []
