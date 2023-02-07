@@ -47,7 +47,7 @@
 			</thead>
 			<tbody>
 				{#each cursos as curso}
-					<CursoRow nombre={curso.nombre} descripcion={curso.descripcion} url={curso.url} />
+					<CursoRow nombre={curso.nombre} descripcion={curso.descripcion} url={curso.url}   />
 				{:else}
 					<tr>
 						<td colspan="4">
@@ -57,16 +57,7 @@
 						</td>
 					</tr>
 				{/each}
-			</tbody>
-			<!-- foot -->
-			<tfoot>
-				<tr>
-					<th />
-					<th>Nombre</th>
-					<th>Descripción</th>
-					<th />
-				</tr>
-			</tfoot>
+			</tbody> 
 		</table>
 	</div>
 {/if}

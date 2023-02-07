@@ -1,15 +1,15 @@
 <script lang="ts">
 	export let nombre: string;
 	export let url: string;
-	export let descripcion: string;
+	export let descripcion: string; 
 </script>
 
 <tr>
-	<th>
+	<td>
 		<label>
 			<input type="checkbox" class="checkbox" />
 		</label>
-	</th>
+	</td>
 	<td>
 		<div class="flex items-center space-x-3">
 			<div class="avatar">
@@ -19,14 +19,20 @@
 			</div>
 			<div>
 				<div class="font-bold">
-					<a href={url} target="_blank" rel="noreferrer">{nombre}</a>
+					<a href={url} target="_blank" class="titulo" rel="noreferrer">{nombre}</a>
 				</div>
 				<div class="text-sm opacity-50" />
 			</div>
 		</div>
 	</td>
-	<td>{descripcion}</td>
+	<td>
+		{descripcion}
+		<p>Mensaje extra</p>
+	</td>
 </tr>
 
 <style>
+a.titulo:hover{
+color:red;
+}
 </style>

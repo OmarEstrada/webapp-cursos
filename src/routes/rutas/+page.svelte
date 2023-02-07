@@ -1,1 +1,5 @@
-<div class="drawer-content">Rutas</div>
+<script>
+    import Ruta from "$lib/rutas/Ruta.svelte";
+</script>
+
+<Ruta></Ruta>
