@@ -1,21 +1,20 @@
 <script>
-	import  UsuariosRow  from '$lib/usuarios/UsuariosRow.svelte';
 	import Loading from '$lib/common/Loading.svelte';
+    import UsuariosCursosRow from '$lib/usuarioscursos/UsuariosCursosRow.svelte'
 	import { onMount } from 'svelte';
 	import { API_URL } from '../../core/constantes';
 	import { wait } from '../../core/wait';
-
 	let loading = true;
-	let usuarios = [];
+	let usuarioscursos = [];
 
 	const cargarContenido = async () => {
 		try {
 			await wait(2000);
 
-			const result = await fetch(`${API_URL}/usuarios`);
+			const result = await fetch(`${API_URL}/usuarioscursos`);
 
 			if (result.ok) {
-				usuarios = await result.json();
+				usuarioscursos = await result.json();
 			}
 		} catch (error) {
 			console.error(error);
@@ -40,16 +39,19 @@
 							<input type="checkbox" class="checkbox" />
 						</label>
 					</th>
-					<th>Nombre</th>
-					<th>email</th>
-                    <th>provider</th>
-                    <th>password</th>
+					<th>userId</th>
+					<th>cursoId</th>
+                    <th>asssigned_by</th>
+					<th>created_by</th>
+					<th>created_at</th>
+					<th>update_by</th>
+					<th>update_at</th>
 					<th />
 				</tr>
 			</thead>
 			<tbody>
-				{#each usuarios as usuario}
-					<UsuariosRow nombre={usuario.nombre} email={usuario.email} url={usuario.url} provider={usuario.provider} password={usuario.password}/>
+				{#each usuarioscursos as usuariocurso}
+					<UsuariosCursosRow userId={usuariocurso.userId}  url={usuariocurso.url} cursoId={usuariocurso.cursoId} assigned_by={usuariocurso.assigned_by} created_by={usuariocurso.created_by} created_at={usuariocurso.created_at} updated_by={usuariocurso.updated_by} updated_at={usuariocurso.updated_at} />
 				{:else}
 					<tr>
 						<td colspan="4">

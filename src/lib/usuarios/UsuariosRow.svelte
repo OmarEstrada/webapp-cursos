@@ -1,12 +1,9 @@
 <script lang="ts">
-     export let url: string;
-     export let nombre: string;
-     export let Descripcion: string;
-     export let Activo: string;
-     export let Created_by: string;
-     export let Created_at: string;
-     export let Updated_by: string;
-     export let Updated_at: string;
+    export let url:string;
+    export let nombre:string;
+    export let email: string;
+    export let provider: string;
+    export let password: string;
 </script>
 
 <tr>
@@ -31,28 +28,19 @@
 		</div>
 	</td>
 	<td>
-		{Descripcion}
+		{email}
 	</td>
-     <td>
-		{Activo}
+    <td>
+		{provider}
 	</td>
-     <td>
-		{Created_by}
-	</td>
-     <td>
-		{Created_at}
-	</td>
-     <td>
-		{Updated_by}
-	</td>
-     <td>
-		{Updated_at}
+    <td>
+		{password}
 	</td>
 </tr>
 
 
 <style>
-     a.titulo:hover{
-     color:red;
-     }
+    a.titulo:hover{
+    color:red;
+    }
 </style>
