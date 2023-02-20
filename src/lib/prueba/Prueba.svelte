@@ -1,6 +1,7 @@
 <script>
 	import Loading from '$lib/common/Loading.svelte';
-	import CursoRow from '$lib/cursos/CursoRow.svelte';
+	import PruebaRow from './PruebaRow.svelte';
+	
 	import { onMount } from 'svelte';
 	import { API_URL } from '../../core/constantes';
 	import { wait } from '../../core/wait';
@@ -25,25 +26,28 @@
 	};
 
 	onMount(cargarContenido);
+
+
+	const deleteCurso = ({ detail: { id } })=>{
+
+		// parametro.detail.id
+		console.log("Ëliminando el curso:",id);
+
+		//TODO:^delete 
+	}
 </script>
 
 {#if loading}
 	<Loading />
 {:else}
+<h1 style="color:yellow;">PRUEBAS</h1>
 	<div class="overflow-x-auto w-full">
 		<table class="table w-full">
-			<!-- head -->
-			<thead>
-				<bottom>
-					NEW
-				</bottom>
-			</thead>
+			<!-- head --> 
 			<thead>
 				<tr>
 					<th>
-						<label>
-							<input type="checkbox" class="checkbox" />
-						</label>
+						Actions
 					</th>
 					<th>Nombre</th>
 					<th>Descripción</th>
@@ -52,7 +56,9 @@
 			</thead>
 			<tbody>
 				{#each cursos as curso}
-					<CursoRow nombre={curso.nombre} descripcion={curso.descripcion} url={curso.url}/>
+					<PruebaRow id={curso.id} nombre={curso.nombre} descripcion={curso.descripcion} url={curso.url} 
+					on:deleteClicked={deleteCurso} 
+					/>
 				{:else}
 					<tr>
 						<td colspan="4">

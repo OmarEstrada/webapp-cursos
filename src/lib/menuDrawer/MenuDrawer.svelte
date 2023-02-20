@@ -39,6 +39,7 @@
 			<li><a href="/usuarios">Usuarios</a></li>
 			<li><a href="/cursos">Cursos</a></li>
 			<li><a href="/rutas">Rutas</a></li>
+			<li><a href="/prueba">prueba</a></li>
 			<div class="divider" />
 			<li><a href="/mis-cursos">Mis Cursos</a></li>
 			<li><a href="/mis-rutas">Mis Rutas</a></li>
