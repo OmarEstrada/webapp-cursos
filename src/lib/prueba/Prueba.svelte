@@ -11,7 +11,7 @@
 
 	const cargarContenido = async () => {
 		try {
-			await wait(2000);
+			await wait(1000);
 
 			const result = await fetch(`${API_URL}/Cursos`);
 
@@ -28,12 +28,23 @@
 	onMount(cargarContenido);
 
 
-	const deleteCurso = ({ detail: { id } })=>{
+	const deleteCurso = async ({ detail: { id } }) => {
 
-		// parametro.detail.id
-		console.log("Ëliminando el curso:",id);
+		try { 
+            loading = true;
 
-		//TODO:^delete 
+			const result = await fetch(`${API_URL}/Cursos/${id}`, {
+                method: "DELETE"
+            });
+
+			if (result.ok) {
+				cursos = cursos.filter(curso => curso.id != id);
+			}
+		} catch (error) {
+			console.error(error);
+		} finally {
+			loading = false;
+		} 
 	}
 </script>
 
