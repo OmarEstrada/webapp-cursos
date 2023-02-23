@@ -1,19 +1,32 @@
 <script lang="ts">
-     export let url: string;
-     export let nombre: string;
-     export let Descripcion: string;
-     export let Activo: string;
-     export let Created_by: string;
-     export let Created_at: string;
-     export let Updated_by: string;
-     export let Updated_at: string;
+	import { goto } from '$app/navigation';
+	import { createEventDispatcher } from 'svelte';
+	import { API_URL } from '../../core/constantes';
+	const dispatch = createEventDispatcher();
+
+	export let id: string;
+	export let nombre: string;
+	export let url: string;
+	export let descripcion: string;
+	export let activo: string;
+	export let Created_by: string;
+	export let Created_at: string;
+	export let Updated_by: string;
+	export let Updated_at: string;
+
+	async function clickEdit() {
+		dispatch('editarClicked', { id });
+	}
+	function clickDelete() {
+		//todo: confirm action
+		dispatch('deleteClicked', { id });
+	}
 </script>
 
 <tr>
 	<td>
-		<label>
-			<input type="checkbox" class="checkbox" />
-		</label>
+		<button class="btn btn-primary" on:click={clickEdit}>EDIT</button>
+		<button class="btn btn-error" on:click={clickDelete}>DELETE</button>
 	</td>
 	<td>
 		<div class="flex items-center space-x-3">
@@ -31,28 +44,27 @@
 		</div>
 	</td>
 	<td>
-		{Descripcion}
+		{descripcion}
 	</td>
-     <td>
-		{Activo}
+	<td>
+		{activo}
 	</td>
-     <td>
+	<td>
 		{Created_by}
 	</td>
-     <td>
+	<td>
 		{Created_at}
 	</td>
-     <td>
+	<td>
 		{Updated_by}
 	</td>
-     <td>
+	<td>
 		{Updated_at}
 	</td>
 </tr>
 
-
 <style>
-     a.titulo:hover{
-     color:red;
-     }
+	a.titulo:hover {
+		color: red;
+	}
 </style>

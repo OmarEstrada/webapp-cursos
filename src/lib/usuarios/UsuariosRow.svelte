@@ -1,16 +1,29 @@
 <script lang="ts">
-    export let url:string;
-    export let nombre:string;
-    export let email: string;
-    export let provider: string;
-    export let password: string;
+	import { goto } from '$app/navigation';
+	import { createEventDispatcher } from 'svelte';
+	import { API_URL } from '../../core/constantes';
+	const dispatch = createEventDispatcher();
+
+	export let id: string;
+	export let nombre: string;
+	export let url: string;
+	export let email: string;
+	export let provider: string;
+	export let password: string;
+
+	async function clickEdit() {
+		dispatch('editarClicked', { id });
+	}
+	function clickDelete() {
+		//todo: confirm action
+		dispatch('deleteClicked', { id });
+	}
 </script>
 
 <tr>
 	<td>
-		<label>
-			<input type="checkbox" class="checkbox" />
-		</label>
+		<button class="btn btn-primary" on:click={clickEdit}>EDIT</button>
+		<button class="btn btn-error" on:click={clickDelete}>DELETE</button>
 	</td>
 	<td>
 		<div class="flex items-center space-x-3">
@@ -30,17 +43,16 @@
 	<td>
 		{email}
 	</td>
-    <td>
+	<td>
 		{provider}
 	</td>
-    <td>
+	<td>
 		{password}
 	</td>
 </tr>
 
-
 <style>
-    a.titulo:hover{
-    color:red;
-    }
+	a.titulo:hover {
+		color: red;
+	}
 </style>

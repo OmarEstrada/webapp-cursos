@@ -1,307 +1,340 @@
 {
-	"Usuarios": [
-		{
-			"nombre":"admin",
-			"email":"admin@correo.com",
-			"provider":"***",
-			"password":"***"
-		},
-		{
-			"nombre":"jperez",
-			"email":"jperez@correo.com",
-			"provider":"***",
-			"password":"***"
-		},
-		{
-			"nombre":"plopez",
-			"email":"plopez@correo.com",
-			"provider":"***",
-			"password":"***"
-		},
-		{
-			"nombre":"jdoe",
-			"email":"jdoe@correo.com",
-			"provider":"***",
-			"password":"***"
-		}
-	],
-	"Cursos": [
-		{
-			"id":1,
-			"nombre": "HTML Básico NUEVO TITULO",
-			"descripcion": "Curso básico de HTML en freecodecamp",
-			"url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
-		},
-		{
-			"id":2,
-			"nombre": "HTML Avanzado",
-			"descripcion": "Curso avanzado de HTML en freecodecamp",
-			"url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
-		},
-		{
-			"id":3,
-			"nombre": "CSS Moderno",
-			"descripcion": "CSS Moderno en Platzi.",
-			"url": "https://platzi.com/CSS-Moderno"
-		},
-		{
-			"id":4,
-			"nombre": "JS Básico",
-			"descripcion": "JavaScript en freecode.",
-			"url": "https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures/"
-		},
-		{
-			"id":5,
-			"nombre": "NodeJS de cero a experto",
-			"descripcion": "Rest, despliegues, Git, GitHub, Sockets, archivos, JWT y mucho más para ser un experto en Node.",
-			"url": "https://www.udemy.com/course/node-de-cero-a-experto/learn/lecture/9901228#overview"
-		},
-		{
-			"id":6,
-			"nombre": "Nest: Desarrollo backend escalable con Node",
-			"descripcion": "REST, TypeScript, Websockets, Autenticación, Authorización, Docker, Mongo, Postgres, TypeOrm.",
-			"url": "https://www.udemy.com/course/nest-framework/"
-		},
-		{
-			"id":7,
-			"nombre": "Fundamentos de la escritura",
-			"descripcion": "Fundamentos de la escritura en Academy.",
-			"url": "https://academy.zafirosoft.com/fundamentos-escritura"
-		},
-		{
-			"id":8,
-			"nombre": "JS Avanzado",
-			"descripcion": "JS Moderno en Udemy.",
-			"url": "https://www.udemy.com/course/javascript-fernando-herrera"
-		},
-		{
-			"id":9,
-			"nombre": "Svelte Midudev",
-			"descripcion": "Curso básico de Svelte de Midudev Youtube.",
-			"url": "https://www.youtube.com/watch?v=Xsxm8_BI63s&list=PLV8x_i1fqBw2QScggh0pw2ATSJg_WHqUN"
-		}
-
-	],
-	"Rutas": [
-		{
-			"nombre": "Ruta de aprendizaje para desarrolladores que inician en la programación web",
-			"Activo": "1",
-			"Created_by": "2",
-			"Created_at": "15/12/2022",
-			"Updated_by": "null",
-			"Updated_at": "null"
-		},
-		{
-			"nombre": "Ruta de aprendizaje para desarrolladores de backend en JavaScript. NodeJS, WebSockets, etc",
-			"Activo": "1",
-			"Created_by": "2",
-			"Created_at": "15/12/2022",
-			"Updated_by": "2",
-			"Updated_at": "16/12/2022"
-		}
-	],
-	"RutasCursos":[
-		{
-			"rutaId": "1",
-			"cursoId": "1",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "3",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "4",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "5",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "8",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "9",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "6",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"rutaId": "1",
-			"cursoId": "7",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		}
-	],
-	"UsuarioCursos":[
-		{
-			"userId": "2",
-			"cursoId": "1",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "2",
-			"cursoId": "2",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "2",
-			"cursoId": "3",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "2",
-			"cursoId": "4",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "2",
-			"cursoId": "5",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "2",
-			"cursoId": "8",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "2",
-			"cursoId": "9",
-			"assigned_by": "2",
-			"created_by": "2",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "1",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "2",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "3",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "4",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "5",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "8",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		},
-		{
-			"userId": "3",
-			"cursoId": "9",
-			"assigned_by": "3",
-			"created_by": "3",
-			"created_at": "15/12/2022",
-			"updated_by": "null",
-			"updated_at": "null"
-		}
-		
-	]
-
+  "Pruebas": [
+    {
+      "id": 1,
+      "nombre": "d"
+    }
+  ],
+  "Usuarios": [
+    {
+      "id": 1,
+      "nombre": "admin",
+      "email": "admin@correo.com",
+      "provider": "***",
+      "password": "***"
+    },
+    {
+      "id": 2,
+      "nombre": "jperez",
+      "email": "jperez@correo.com",
+      "provider": "***",
+      "password": "***"
+    },
+    {
+      "id": 3,
+      "nombre": "plopez",
+      "email": "plopez@correo.com",
+      "provider": "***",
+      "password": "***"
+    },
+    {
+      "id": 4,
+      "nombre": "jdoe",
+      "email": "jdoe@correo.com",
+      "provider": "***",
+      "password": "***"
+    }
+  ],
+  "Cursos": [
+    {
+      "nombre": "HTML Básico",
+      "url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/",
+      "descripcion": "Curso básico de HTML en freecodecamp",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nombre": "HtML Avanzado",
+      "url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/",
+      "descripcion": "Curso avanzado de HTML en freecodecamp"
+    },
+    {
+      "id": 3,
+      "nombre": "CSS Moderno",
+      "url": "https://platzi.com/CSS-Moderno",
+      "descripcion": "CSS Moderno en Platzi"
+    },
+    {
+      "id": 4,
+      "nombre": "JS Básico",
+      "url": "https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures/",
+      "descripcion": "JavaScript en freecode"
+    },
+    {
+      "id": 5,
+      "nombre": "NodeJS de cero a experto",
+      "url": "https://www.udemy.com/course/node-de-cero-a-experto/learn/lecture/9901228#overview",
+      "descripcion": "Rest, despliegues, Git, GitHub, Sockets, archivos, JWT y mucho más para ser un experto en Node"
+    },
+    {
+      "id": 6,
+      "nombre": "Nest: Desarrollo backend escalable con Node",
+      "url": "https://www.udemy.com/course/nest-framework/",
+      "descripcion": "REST, TypeScript, Websockets, Autenticación, Authorización, Docker, Mongo, Postgres, TypeOrm,"
+    },
+    {
+      "id": 7,
+      "nombre": "Fundamentos de la escritura",
+      "url": "https://academy.zafirosoft.com/fundamentos-escritura",
+      "descripcion": "Fundamentos de la escritura en Academy"
+    },
+    {
+      "id": 8,
+      "nombre": "JS Avanzado",
+      "url": "https://www.udemy.com/course/javascript-fernando-herrera",
+      "descripcion": "JS Moderno en Udemy"
+    },
+    {
+      "id": 9,
+      "nombre": "Svelte Midudevo",
+      "url": "https://www.youtube.com/watch?v=Xsxm8_BI63s&list=PLV8x_i1fqBw2QScggh0pw2ATSJg_WHqUN",
+      "descripcion": "Curso básico de Svelte de Midudev Youtube"
+    }
+    
+  ],
+  "Rutas": [
+    {
+      "id": 1,
+      "nombre": "Ruta de aprendizaje para desarrolladores que inician en la programación web",
+      "Activo": "1",
+      "Created_by": "2",
+      "Created_at": "15/12/2022",
+      "Updated_by": "null",
+      "Updated_at": "null"
+    },
+    {
+      "id": 2,
+      "nombre": "Ruta de aprendizaje para desarrolladores de backend en JavaScript. NodeJS, WebSockets, etc",
+      "Activo": "1",
+      "Created_by": "2",
+      "Created_at": "15/12/2022",
+      "Updated_by": "2",
+      "Updated_at": "16/12/2022"
+    }
+  ],
+  "RutasCursos": [
+    {
+      "id": 1,
+      "rutaId": "1",
+      "cursoId": "1",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 2,
+      "rutaId": "1",
+      "cursoId": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 3,
+      "rutaId": "1",
+      "cursoId": "3",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 4,
+      "rutaId": "1",
+      "cursoId": "4",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 5,
+      "rutaId": "1",
+      "cursoId": "5",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 6,
+      "rutaId": "1",
+      "cursoId": "8",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 7,
+      "rutaId": "1",
+      "cursoId": "9",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 8,
+      "rutaId": "1",
+      "cursoId": "6",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 9,
+      "rutaId": "1",
+      "cursoId": "7",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    }
+  ],
+  "UsuarioCursos": [
+    {
+      "id": 1,
+      "userId": "2",
+      "cursoId": "1",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 2,
+      "userId": "2",
+      "cursoId": "2",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 3,
+      "userId": "2",
+      "cursoId": "3",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 4,
+      "userId": "2",
+      "cursoId": "4",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 5,
+      "userId": "2",
+      "cursoId": "5",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 6,
+      "userId": "2",
+      "cursoId": "8",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 7,
+      "userId": "2",
+      "cursoId": "9",
+      "assigned_by": "2",
+      "created_by": "2",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 8,
+      "userId": "3",
+      "cursoId": "1",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 9,
+      "userId": "3",
+      "cursoId": "2",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 10,
+      "userId": "3",
+      "cursoId": "3",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 11,
+      "userId": "3",
+      "cursoId": "4",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 12,
+      "userId": "3",
+      "cursoId": "5",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 13,
+      "userId": "3",
+      "cursoId": "8",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    },
+    {
+      "id": 14,
+      "userId": "3",
+      "cursoId": "9",
+      "assigned_by": "3",
+      "created_by": "3",
+      "created_at": "15/12/2022",
+      "updated_by": "null",
+      "updated_at": "null"
+    }
+  ]
 }
