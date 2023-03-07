@@ -60,7 +60,7 @@
 		on:cancel={() => (showingDeleteModal = false)}
 		on:confirm={confirmDelete}
 	>
-		<h3 class="font-bold text-lg">Elimar Usuario</h3>
+		<h3 class="font-bold text-lg">Eliminar Usuario</h3>
 		<p class="py-4">¿Está seguro que desea eliminar al usuario?</p>
 	</Modal>
 {/if}

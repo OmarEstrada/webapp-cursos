@@ -69,7 +69,7 @@
 		on:cancel={() => (showingDeleteModal = false)}
 		on:confirm={confirmDelete}
 	>
-		<h3 class="font-bold text-lg">Elimar Ruta</h3>
+		<h3 class="font-bold text-lg">Eliminar Ruta</h3>
 		<p class="py-4">¿Está seguro que desea eliminar esta ruta?</p>
 	</Modal>
 {/if}
