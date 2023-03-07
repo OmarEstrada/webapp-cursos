@@ -2,7 +2,9 @@
   "Pruebas": [
     {
       "id": 1,
-      "nombre": "d"
+      "nombre": "hola",
+      "url": "RLU",
+      "descripcion": "RLU"
     }
   ],
   "Usuarios": [
@@ -33,64 +35,70 @@
       "email": "jdoe@correo.com",
       "provider": "***",
       "password": "***"
+    },
+    {
+      "id": 5,
+      "nombre": "Gustavo",
+      "email": "Gustavo@zafirosoft.com",
+      "provider": "***",
+      "password": "***"
     }
   ],
   "Cursos": [
     {
+      "id": 5,
       "nombre": "HTML Básico",
       "url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/",
-      "descripcion": "Curso básico de HTML en freecodecamp",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "nombre": "HtML Avanzado",
-      "url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/",
-      "descripcion": "Curso avanzado de HTML en freecodecamp"
-    },
-    {
-      "id": 3,
-      "nombre": "CSS Moderno",
-      "url": "https://platzi.com/CSS-Moderno",
-      "descripcion": "CSS Moderno en Platzi"
-    },
-    {
-      "id": 4,
-      "nombre": "JS Básico",
-      "url": "https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures/",
-      "descripcion": "JavaScript en freecode"
-    },
-    {
-      "id": 5,
-      "nombre": "NodeJS de cero a experto",
-      "url": "https://www.udemy.com/course/node-de-cero-a-experto/learn/lecture/9901228#overview",
-      "descripcion": "Rest, despliegues, Git, GitHub, Sockets, archivos, JWT y mucho más para ser un experto en Node"
+      "descripcion": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
     },
     {
       "id": 6,
-      "nombre": "Nest: Desarrollo backend escalable con Node",
-      "url": "https://www.udemy.com/course/nest-framework/",
-      "descripcion": "REST, TypeScript, Websockets, Autenticación, Authorización, Docker, Mongo, Postgres, TypeOrm,"
+      "nombre": "HtML Avanzado",
+      "url": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/",
+      "descripcion": "https://www.freecodecamp.org/espanol/learn/responsive-web-design/"
     },
     {
       "id": 7,
-      "nombre": "Fundamentos de la escritura",
-      "url": "https://academy.zafirosoft.com/fundamentos-escritura",
-      "descripcion": "Fundamentos de la escritura en Academy"
+      "nombre": "CSS Moderno",
+      "url": "https://platzi.com/CSS-Moderno",
+      "descripcion": "https://platzi.com/CSS-Moderno"
     },
     {
       "id": 8,
-      "nombre": "JS Avanzado",
-      "url": "https://www.udemy.com/course/javascript-fernando-herrera",
-      "descripcion": "JS Moderno en Udemy"
+      "nombre": "JS Básico",
+      "url": "https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures/",
+      "descripcion": "https://www.freecodecamp.org/espanol/learn/javascript-algorithms-and-data-structures/"
     },
     {
       "id": 9,
-      "nombre": "Svelte Midudevo",
+      "nombre": "NodeJS de cero a experto",
+      "url": "https://www.udemy.com/course/node-de-cero-a-experto/learn/lecture/9901228#overview",
+      "descripcion": "https://www.udemy.com/course/node-de-cero-a-experto/learn/lecture/9901228#overview"
+    },
+    {
+      "id": 10,
+      "nombre": "Nest: Desarrollo backend escalable con Node",
+      "url": "https://www.udemy.com/course/nest-framework/",
+      "descripcion": "https://www.udemy.com/course/nest-framework/"
+    },
+    {
+      "id": 11,
+      "nombre": "Fundamentos de la escritura",
+      "url": "https://academy.zafirosoft.com/fundamentos-escritura",
+      "descripcion": "https://academy.zafirosoft.com/fundamentos-escritura"
+    },
+    {
+      "id": 12,
+      "nombre": "JS Avanzado",
+      "url": "https://www.udemy.com/course/javascript-fernando-herrera",
+      "descripcion": "https://www.udemy.com/course/javascript-fernando-herrera"
+    },
+    {
+      "id": 13,
+      "nombre": "Svelte Midudev",
       "url": "https://www.youtube.com/watch?v=Xsxm8_BI63s&list=PLV8x_i1fqBw2QScggh0pw2ATSJg_WHqUN",
-      "descripcion": "Curso básico de Svelte de Midudev Youtube"
+      "descripcion": "https://www.youtube.com/watch?v=Xsxm8_BI63s&list=PLV8x_i1fqBw2QScggh0pw2ATSJg_WHqUN"
     }
-    
   ],
   "Rutas": [
     {

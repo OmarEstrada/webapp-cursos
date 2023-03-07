@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import Modal from '$lib/common/Modal.svelte';
+	import { stringify } from 'postcss';
 	import { createEventDispatcher } from 'svelte';
 	import { API_URL } from '../../core/constantes';
 	const dispatch = createEventDispatcher();
@@ -9,19 +11,25 @@
 	export let url: string;
 	export let descripcion: string;
 
-	async function clickEdit() {
-		dispatch('editarClicked', { id });
-	}
-	function clickDelete() {
+	let showingDeleteModal = false;
+	let showingEditModal = true;
+
+	async function clickEdit() {}
+	function confirmDelete() {
 		//todo: confirm action
 		dispatch('deleteClicked', { id });
+	}
+
+	function saveChanges() {
+		//Guardar Datos
+		console.log(descripcion, nombre, url);
 	}
 </script>
 
 <tr>
 	<td>
-		<button class="btn btn-primary" on:click={clickEdit}>EDIT</button>
-		<button class="btn btn-error" on:click={clickDelete}>DELETE</button>
+		<button class="btn-primary" on:click={() => (showingEditModal = true)}>EDIT</button>
+		<button class="btn btn-error" on:click={() => (showingDeleteModal = true)}>DELETE</button>
 	</td>
 	<td>
 		<div class="flex items-center space-x-3">
@@ -45,6 +53,39 @@
 		{url}
 	</td>
 </tr>
+
+{#if showingDeleteModal}
+	<Modal
+		confirmBtnText="Delete!"
+		on:cancel={() => (showingDeleteModal = false)}
+		on:confirm={confirmDelete}
+	>
+		<h3 class="font-bold text-lg">Elimar Curso</h3>
+		<p class="py-4">¿Está seguro que desea eliminar el curso?</p>
+	</Modal>
+{/if}
+
+{#if showingEditModal}
+	<Modal
+		confirmBtnText="Save Changes"
+		on:cancel={() => (showingEditModal = false)}
+		on:confirm={saveChanges}
+	>
+		<h3 class="font-bold text-lg">Editar Curso</h3>
+		<p class="py-4">
+			<label for="name">Nombre:</label>
+			<input type="text" bind:value={nombre} />
+		</p>
+		<p class="py-4">
+			<label for="name">Descripción:</label>
+			<input type="text" bind:value={descripcion} />
+		</p>
+		<p class="py-4">
+			<label for="name">URL:</label>
+			<input type="text" bind:value={url} />
+		</p>
+	</Modal>
+{/if}
 
 <style>
 	a.titulo:hover {

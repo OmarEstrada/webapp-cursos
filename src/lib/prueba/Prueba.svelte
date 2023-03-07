@@ -4,12 +4,10 @@
 	import { onMount } from 'svelte';
 	import { API_URL } from '../../core/constantes';
 	import { wait } from '../../core/wait';
-	import Cursos from '$lib/cursos/Cursos.svelte';
 
 	let loading = true;
-	let cursos = [];
-	let activado = true;
-	let datoscursos = {
+	let pruebas = [];
+	let datospruebas = {
 		id: null,
 		nombre: '',
 		url: '',
@@ -20,10 +18,10 @@
 		try {
 			await wait(1000);
 
-			const result = await fetch(`${API_URL}/Cursos`);
+			const result = await fetch(`${API_URL}/Pruebas`);
 
 			if (result.ok) {
-				cursos = await result.json();
+				pruebas = await result.json();
 			}
 		} catch (error) {
 			console.error(error);
@@ -34,16 +32,16 @@
 
 	onMount(cargarContenido);
 
-	const deleteCurso = async ({ detail: { id } }) => {
+	const deletePrueba = async ({ detail: { id } }) => {
 		try {
 			loading = true;
 
-			const result = await fetch(`${API_URL}/Cursos/${id}`, {
+			const result = await fetch(`${API_URL}/Pruebas/${id}`, {
 				method: 'DELETE'
 			});
 
 			if (result.ok) {
-				cursos = cursos.filter((curso) => curso.id != id);
+				pruebas = pruebas.filter((prueba) => prueba.id != id);
 			}
 		} catch (error) {
 			console.error(error);
@@ -52,25 +50,25 @@
 		}
 	};
 
-	const editCurso = async ({ detail: { id } }) => {
-		const cursoAEditar = cursos.find((curso) => curso.id == id);
+	const editPrueba = async ({ detail: { id } }) => {
+		const pruebaAEditar = pruebas.find((prueba) => prueba.id == id);
 
-		if (!cursoAEditar) return;
-		datoscursos = { ...cursoAEditar };
+		if (!pruebaAEditar) return;
+		datospruebas = { ...pruebaAEditar };
 	};
 
-	let agregarcurso = async () => {
-		const nuevocurso = {
-			id: datoscursos.id,
-			nombre: datoscursos.nombre,
-			url: datoscursos.url,
-			descripcion: datoscursos.url
+	let agregarprueba = async () => {
+		const nuevoprueba = {
+			id: datospruebas.id,
+			nombre: datospruebas.nombre,
+			url: datospruebas.url,
+			descripcion: datospruebas.url
 		};
 		try {
 			loading = true;
-			const result = await fetch(`${API_URL}/Cursos`, {
+			const result = await fetch(`${API_URL}/Pruebas`, {
 				method: 'POST',
-				body: JSON.stringify(nuevocurso),
+				body: JSON.stringify(nuevoprueba),
 				headers: {
 					'Content-Type': 'application/json'
 				}
@@ -79,7 +77,7 @@
 			if (result.ok) {
 				const nuevo = await result.json();
 
-				cursos = [...cursos, nuevo];
+				pruebas = [...pruebas, nuevo];
 			}
 		} catch (error) {
 			console.error(error);
@@ -88,24 +86,23 @@
 		}
 	};
 
-	let actualizarcurso = async () => {
+	let actualizarprueba = async () => {
 		try {
 			loading = true;
-			const result = await fetch(`${API_URL}/Cursos/` + datoscursos.id, {
+			const result = await fetch(`${API_URL}/Pruebas/` + datospruebas.id, {
 				method: 'PUT',
-				body: JSON.stringify(datoscursos),
+				body: JSON.stringify(datospruebas),
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			});
 
 			if (result.ok) {
-				cursos = cursos.map((curso) => {
-					if (curso.id != datoscursos.id) {
-						return curso;
+				pruebas = pruebas.map((pruebas) => {
+					if (pruebas.id != datospruebas.id) {
+						return pruebas;
 					}
-
-					return datoscursos;
+					return datospruebas;
 				});
 			}
 		} catch (error) {
@@ -133,56 +130,68 @@
 				</tr>
 				<tr>
 					<th>
-						<button class="btn btn-success" on:click|preventDefault={agregarcurso}
+						<button class="btn btn-success" on:click|preventDefault={agregarprueba}
 							>AgregarCurso</button
 						>
 					</th>
 					<th>
-						<input
-							bind:value={datoscursos.nombre}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datospruebas.nombre}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Nombre</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datoscursos.descripcion}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datospruebas.descripcion}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Descripcion</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datoscursos.url}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datospruebas.url}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">url</label>
+						</div>
 					</th>
 					<th>
-						<button class="btn btn-success" on:click|preventDefault={actualizarcurso}
+						<button class="btn btn-success" on:click|preventDefault={actualizarprueba}
 							>Actualizar</button
 						>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
-				{#each cursos as curso}
+				{#each pruebas as prueba}
 					<PruebaRow
-						id={curso.id}
-						nombre={curso.nombre}
-						descripcion={curso.descripcion}
-						url={curso.url}
-						on:deleteClicked={deleteCurso}
-						on:editarClicked={editCurso}
+						id={prueba.id}
+						nombre={prueba.nombre}
+						descripcion={prueba.descripcion}
+						url={prueba.url}
+						on:deleteClicked={deletePrueba}
+						on:editarClicked={editPrueba}
 					/>
 				{:else}
 					<tr>
@@ -197,3 +206,39 @@
 		</table>
 	</div>
 {/if}
+
+<style>
+	div.single-input {
+		width: 100%;
+		max-width: 30px 0;
+		position: relative;
+	}
+	div.single-input label {
+		font-size: 16px;
+		position: absolute;
+		left: 0;
+		bottom: 10px;
+		color: rgb(16, 54, 119);
+		cursor: text;
+		transition: 0.5s ease-in-out;
+	}
+	div.single-input .input {
+		width: 100%;
+		padding: 5px;
+		color: rgb(150, 150, 150);
+		border: 0;
+		border-bottom: 2px solid rgb(200, 200, 200);
+		outline: 0;
+		font-size: 16px;
+	}
+	div.single-input .input:focus,
+	div.single-input .input:valid {
+		border-bottom: 2px solid cornflowerblue;
+	}
+	div.single-input .input:focus ~ label,
+	div.single-input .input:valid ~ label {
+		transform: translateY(-24px);
+		font-size: 12px;
+		color: cornflowerblue;
+	}
+</style>

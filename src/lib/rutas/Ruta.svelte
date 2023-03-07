@@ -7,13 +7,10 @@
 
 	let loading = true;
 	let rutas = [];
-	let activado = true;
 	let datosrutas = {
 		id: null,
 		nombre: '',
-		url: '',
-		descripcion: '',
-		activo: '',
+		Activo: '',
 		Created_by: '',
 		Created_at: '',
 		Updated_by: '',
@@ -67,8 +64,7 @@
 		const nuevoruta = {
 			id: datosrutas.id,
 			nombre: datosrutas.nombre,
-			descripcion: datosrutas.descripcion,
-			activo: datosrutas.activo,
+			Activo: datosrutas.Activo,
 			Created_by: datosrutas.Created_by,
 			Created_at: datosrutas.Created_at,
 			Updated_by: datosrutas.Updated_by,
@@ -132,9 +128,8 @@
 			<!-- head -->
 			<thead>
 				<tr>
-					<th> Actions </th>
+					<th>Actions </th>
 					<th>Nombre</th>
-					<th>Descripción</th>
 					<th>Activo</th>
 					<th>Created_by</th>
 					<th>Created_at</th>
@@ -148,84 +143,88 @@
 						>
 					</th>
 					<th>
-						<input
-							bind:value={datosrutas.nombre}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosrutas.nombre}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Nombre</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosrutas.descripcion}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosrutas.Activo}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Activo</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosrutas.url}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosrutas.Created_by}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Created_by</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosrutas.activo}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosrutas.Created_at}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Created_at</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosrutas.Created_by}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosrutas.Updated_by}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Updated_by</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosrutas.Created_at}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
-					</th>
-					<th>
-						<input
-							bind:value={datosrutas.Updated_by}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
-					</th>
-					<th>
-						<input
-							bind:value={datosrutas.Updated_at}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosrutas.Updated_at}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Updated_at</label>
+						</div>
 					</th>
 					<th>
 						<button class="btn btn-success" on:click|preventDefault={actualizarruta}
@@ -239,9 +238,8 @@
 					<RutaRow
 						id={ruta.id}
 						nombre={ruta.nombre}
-						descripcion={ruta.descripcion}
+						Activo={ruta.Activo}
 						url={ruta.url}
-						activo={ruta.activo}
 						Created_by={ruta.Created_by}
 						Created_at={ruta.Created_at}
 						Updated_by={ruta.Updated_by}
@@ -262,3 +260,39 @@
 		</table>
 	</div>
 {/if}
+
+<style>
+	div.single-input {
+		width: 100%;
+		max-width: 30px 0;
+		position: relative;
+	}
+	div.single-input label {
+		font-size: 16px;
+		position: absolute;
+		left: 0;
+		bottom: 10px;
+		color: rgb(16, 54, 119);
+		cursor: text;
+		transition: 0.5s ease-in-out;
+	}
+	div.single-input .input {
+		width: 100%;
+		padding: 5px;
+		color: rgb(150, 150, 150);
+		border: 0;
+		border-bottom: 2px solid rgb(200, 200, 200);
+		outline: 0;
+		font-size: 16px;
+	}
+	div.single-input .input:focus,
+	div.single-input .input:valid {
+		border-bottom: 2px solid cornflowerblue;
+	}
+	div.single-input .input:focus ~ label,
+	div.single-input .input:valid ~ label {
+		transform: translateY(-24px);
+		font-size: 12px;
+		color: cornflowerblue;
+	}
+</style>

@@ -7,7 +7,6 @@
 
 	let loading = true;
 	let usuarios = [];
-	let activado = true;
 	let datosusuarios = {
 		id: null,
 		nombre: '',
@@ -140,44 +139,60 @@
 						>
 					</th>
 					<th>
-						<input
-							bind:value={datosusuarios.nombre}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosusuarios.nombre}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Nombre</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosusuarios.email}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosusuarios.email}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Descripcion</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosusuarios.provider}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosusuarios.provider}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Provider</label>
+						</div>
 					</th>
 					<th>
-						<input
-							bind:value={datosusuarios.password}
-							type="text"
-							class="from control"
-							name=""
-							id=""
-							aria-describedby="help"
-						/>
+						<div class="single-input">
+							<input
+								bind:value={datosusuarios.password}
+								required
+								type="text"
+								name=""
+								id="nome"
+								class="input"
+								aria-describedby="help"
+							/>
+							<label for="nome">Password</label>
+						</div>
 					</th>
 					<th>
 						<button class="btn btn-success" on:click|preventDefault={actualizarusuario}
@@ -211,3 +226,39 @@
 		</table>
 	</div>
 {/if}
+
+<style>
+	div.single-input {
+		width: 100%;
+		max-width: 30px 0;
+		position: relative;
+	}
+	div.single-input label {
+		font-size: 16px;
+		position: absolute;
+		left: 0;
+		bottom: 10px;
+		color: rgb(16, 54, 119);
+		cursor: text;
+		transition: 0.5s ease-in-out;
+	}
+	div.single-input .input {
+		width: 100%;
+		padding: 5px;
+		color: rgb(150, 150, 150);
+		border: 0;
+		border-bottom: 2px solid rgb(200, 200, 200);
+		outline: 0;
+		font-size: 16px;
+	}
+	div.single-input .input:focus,
+	div.single-input .input:valid {
+		border-bottom: 2px solid cornflowerblue;
+	}
+	div.single-input .input:focus ~ label,
+	div.single-input .input:valid ~ label {
+		transform: translateY(-24px);
+		font-size: 12px;
+		color: cornflowerblue;
+	}
+</style>

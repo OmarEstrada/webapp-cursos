@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import { createEventDispatcher } from 'svelte';
 	import { API_URL } from '../../core/constantes';
+	import Modal from '$lib/common/Modal.svelte';
 	const dispatch = createEventDispatcher();
 
 	export let id: string;
@@ -11,10 +12,12 @@
 	export let provider: string;
 	export let password: string;
 
+	let showingDeleteModal = false;
+
 	async function clickEdit() {
 		dispatch('editarClicked', { id });
 	}
-	function clickDelete() {
+	function confirmDelete() {
 		//todo: confirm action
 		dispatch('deleteClicked', { id });
 	}
@@ -23,7 +26,7 @@
 <tr>
 	<td>
 		<button class="btn btn-primary" on:click={clickEdit}>EDIT</button>
-		<button class="btn btn-error" on:click={clickDelete}>DELETE</button>
+		<button class="btn btn-error" on:click={() => (showingDeleteModal = true)}>DELETE</button>
 	</td>
 	<td>
 		<div class="flex items-center space-x-3">
@@ -50,6 +53,17 @@
 		{password}
 	</td>
 </tr>
+
+{#if showingDeleteModal}
+	<Modal
+		confirmBtnText="Delete!"
+		on:cancel={() => (showingDeleteModal = false)}
+		on:confirm={confirmDelete}
+	>
+		<h3 class="font-bold text-lg">Elimar Curso</h3>
+		<p class="py-4">¿Está seguro que desea eliminar el curso?</p>
+	</Modal>
+{/if}
 
 <style>
 	a.titulo:hover {
