@@ -115,9 +115,3 @@
 		</p>
 	</Modal>
 {/if}
-
-<style>
-	a.titulo:hover {
-		color: red;
-	}
-</style>
