@@ -14,6 +14,10 @@
 		descripcion: ''
 	};
 
+	export let editNombre;
+	export let editDescripcion;
+	export let editUrl;
+
 	const cargarContenido = async () => {
 		try {
 			await wait(1000);
@@ -91,19 +95,16 @@
 			loading = true;
 			const result = await fetch(`${API_URL}/Pruebas/` + datospruebas.id, {
 				method: 'PUT',
-				body: JSON.stringify(datospruebas),
+				body: JSON.stringify({ editNombre, editDescripcion, editUrl }),
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			});
 
 			if (result.ok) {
-				pruebas = pruebas.map((pruebas) => {
-					if (pruebas.id != datospruebas.id) {
-						return pruebas;
-					}
-					return datospruebas;
-				});
+				datospruebas.nombre = editNombre;
+				datospruebas.descripcion = editDescripcion;
+				datospruebas.url <= editUrl;
 			}
 		} catch (error) {
 			console.error(error);
@@ -190,6 +191,8 @@
 						nombre={prueba.nombre}
 						descripcion={prueba.descripcion}
 						url={prueba.url}
+						{datospruebas}
+						{loading}
 						on:deleteClicked={deletePrueba}
 						on:editarClicked={editPrueba}
 					/>

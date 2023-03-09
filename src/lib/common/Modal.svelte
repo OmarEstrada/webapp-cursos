@@ -18,8 +18,8 @@
 	<div class="modal-box">
 		<slot />
 		<div class="modal-action">
-			<button class="btn btn-primary" on:click={cancel}>{cancelBtnText}</button>
-			<button class="btn btn-error" on:click={confirm}>{confirmBtnText}</button>
+			<button class="btn btn-error" on:click={cancel}>{cancelBtnText}</button>
+			<button class="btn btn-success" on:click={confirm}>{confirmBtnText}</button>
 		</div>
 	</div>
 </div>

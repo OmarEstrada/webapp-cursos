@@ -10,9 +10,15 @@
 	export let nombre: string;
 	export let url: string;
 	export let descripcion: string;
+	export let loading: any;
+	export let datospruebas: any;
 
 	let showingDeleteModal = false;
-	let showingEditModal = true;
+	let showingEditModal = false;
+
+	let editNombre = '';
+	let editDescripcion = '';
+	let editUrl = '';
 
 	async function clickEdit() {}
 	function confirmDelete() {
@@ -20,10 +26,29 @@
 		dispatch('deleteClicked', { id });
 	}
 
-	function saveChanges() {
-		//Guardar Datos
+	const saveChanges = async () => {
+		try {
+			loading = true;
+			const result = await fetch(`${API_URL}/Pruebas/` + datospruebas.id, {
+				method: 'PUT',
+				body: JSON.stringify({ editNombre, editDescripcion, editUrl }),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			});
+
+			if (result.ok) {
+				datospruebas.nombre = editNombre;
+				datospruebas.descripcion = editDescripcion;
+				datospruebas.url <= editUrl;
+			}
+		} catch (error) {
+			console.error(error);
+		} finally {
+			loading = false;
+		}
 		console.log(descripcion, nombre, url);
-	}
+	};
 </script>
 
 <tr>
@@ -74,15 +99,15 @@
 		<h3 class="font-bold text-lg">Editar Curso</h3>
 		<p class="py-4">
 			<label for="name">Nombre:</label>
-			<input type="text" bind:value={nombre} />
+			<input type="text" bind:value={editNombre} />
 		</p>
 		<p class="py-4">
 			<label for="name">Descripción:</label>
-			<input type="text" bind:value={descripcion} />
+			<input type="text" bind:value={editDescripcion} />
 		</p>
 		<p class="py-4">
 			<label for="name">URL:</label>
-			<input type="text" bind:value={url} />
+			<input type="text" bind:value={editUrl} />
 		</p>
 	</Modal>
 {/if}
