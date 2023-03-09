@@ -66,7 +66,7 @@
 			id: datospruebas.id,
 			nombre: datospruebas.nombre,
 			url: datospruebas.url,
-			descripcion: datospruebas.url
+			descripcion: datospruebas.descripcion
 		};
 		try {
 			loading = true;
@@ -104,7 +104,7 @@
 			if (result.ok) {
 				datospruebas.nombre = editNombre;
 				datospruebas.descripcion = editDescripcion;
-				datospruebas.url <= editUrl;
+				datospruebas.url = editUrl;
 			}
 		} catch (error) {
 			console.error(error);
@@ -127,7 +127,6 @@
 					<th>Nombre</th>
 					<th>Descripción</th>
 					<th>Url</th>
-					<th />
 				</tr>
 				<tr>
 					<th>
@@ -177,11 +176,6 @@
 							<label for="nome">url</label>
 						</div>
 					</th>
-					<th>
-						<button class="btn btn-success" on:click|preventDefault={actualizarprueba}
-							>Actualizar</button
-						>
-					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -191,7 +185,6 @@
 						nombre={prueba.nombre}
 						descripcion={prueba.descripcion}
 						url={prueba.url}
-						{datospruebas}
 						{loading}
 						on:deleteClicked={deletePrueba}
 						on:editarClicked={editPrueba}

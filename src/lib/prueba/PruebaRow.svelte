@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Prueba from './Prueba.svelte';
 	import { goto } from '$app/navigation';
 	import Modal from '$lib/common/Modal.svelte';
 	import { stringify } from 'postcss';
@@ -11,7 +12,6 @@
 	export let url: string;
 	export let descripcion: string;
 	export let loading: any;
-	export let datospruebas: any;
 
 	let showingDeleteModal = false;
 	let showingEditModal = false;
@@ -29,18 +29,18 @@
 	const saveChanges = async () => {
 		try {
 			loading = true;
-			const result = await fetch(`${API_URL}/Pruebas/` + datospruebas.id, {
+			const result = await fetch(`${API_URL}/Pruebas/` + id, {
 				method: 'PUT',
-				body: JSON.stringify({ editNombre, editDescripcion, editUrl }),
+				body: JSON.stringify({ nombre: editNombre, descripcion: editDescripcion, url: editUrl }),
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			});
 
 			if (result.ok) {
-				datospruebas.nombre = editNombre;
-				datospruebas.descripcion = editDescripcion;
-				datospruebas.url <= editUrl;
+				nombre = editNombre;
+				descripcion = editDescripcion;
+				url = editUrl;
 			}
 		} catch (error) {
 			console.error(error);
@@ -49,11 +49,18 @@
 		}
 		console.log(descripcion, nombre, url);
 	};
+
+	const editStart = () => {
+		editNombre = nombre;
+		editDescripcion = descripcion;
+		editUrl = url;
+		showingEditModal = true;
+	};
 </script>
 
 <tr>
 	<td>
-		<button class="btn-primary" on:click={() => (showingEditModal = true)}>EDIT</button>
+		<button class="btn btn-primary" on:click={editStart}>EDIT</button>
 		<button class="btn btn-error" on:click={() => (showingDeleteModal = true)}>DELETE</button>
 	</td>
 	<td>
@@ -85,8 +92,8 @@
 		on:cancel={() => (showingDeleteModal = false)}
 		on:confirm={confirmDelete}
 	>
-		<h3 class="font-bold text-lg">Eliminar Curso</h3>
-		<p class="py-4">¿Está seguro que desea eliminar el curso?</p>
+		<h3 class="font-bold text-lg">Eliminar Prueba</h3>
+		<p class="py-4">¿Está seguro que desea eliminar el Prueba?</p>
 	</Modal>
 {/if}
 
@@ -96,7 +103,7 @@
 		on:cancel={() => (showingEditModal = false)}
 		on:confirm={saveChanges}
 	>
-		<h3 class="font-bold text-lg">Editar Curso</h3>
+		<h3 class="font-bold text-lg">Editar Prueba</h3>
 		<p class="py-4">
 			<label for="name">Nombre:</label>
 			<input type="text" bind:value={editNombre} />

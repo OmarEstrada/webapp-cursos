@@ -9,21 +9,55 @@
 	export let nombre: string;
 	export let url: string;
 	export let descripcion: string;
+	export let loading: any;
 
 	let showingDeleteModal = false;
+	let showingEditModal = false;
 
-	async function clickEdit() {
-		dispatch('editarClicked', { id });
-	}
+	let editNombre = '';
+	let editDescripcion = '';
+	let editUrl = '';
+
+	async function clickEdit() {}
 	function confirmDelete() {
 		//todo: confirm action
 		dispatch('deleteClicked', { id });
 	}
+
+	const saveChanges = async () => {
+		try {
+			loading = true;
+			const result = await fetch(`${API_URL}/Cursos/` + id, {
+				method: 'PUT',
+				body: JSON.stringify({ editNombre, editDescripcion, editUrl }),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			});
+
+			if (result.ok) {
+				nombre = editNombre;
+				descripcion = editDescripcion;
+				url = editUrl;
+			}
+		} catch (error) {
+			console.error(error);
+		} finally {
+			loading = false;
+		}
+	};
+
+	const editStart = () => {
+		editNombre = nombre;
+		editDescripcion = descripcion;
+		editUrl = url;
+		showingEditModal = true;
+	};
 </script>
 
 <tr>
 	<td>
-		<button class="btn btn-primary" on:click={clickEdit}>EDIT</button>
+		<button class="btn btn-primary" on:click={editStart}>EDIT</button>
 		<button class="btn btn-error" on:click={() => (showingDeleteModal = true)}>DELETE</button>
 	</td>
 	<td>
@@ -57,6 +91,28 @@
 	>
 		<h3 class="font-bold text-lg">Eliminar Curso</h3>
 		<p class="py-4">¿Está seguro que desea eliminar el curso?</p>
+	</Modal>
+{/if}
+
+{#if showingEditModal}
+	<Modal
+		confirmBtnText="Save Changes"
+		on:cancel={() => (showingEditModal = false)}
+		on:confirm={saveChanges}
+	>
+		<h3 class="font-bold text-lg">Editar Curso</h3>
+		<p class="py-4">
+			<label for="name">Nombre:</label>
+			<input type="text" bind:value={editNombre} />
+		</p>
+		<p class="py-4">
+			<label for="name">Descripción:</label>
+			<input type="text" bind:value={editDescripcion} />
+		</p>
+		<p class="py-4">
+			<label for="name">URL:</label>
+			<input type="text" bind:value={editUrl} />
+		</p>
 	</Modal>
 {/if}
 

@@ -14,6 +14,10 @@
 		descripcion: ''
 	};
 
+	export let editNombre;
+	export let editDescripcion;
+	export let editUrl;
+
 	const cargarContenido = async () => {
 		try {
 			await wait(1000);
@@ -62,7 +66,7 @@
 			id: datoscursos.id,
 			nombre: datoscursos.nombre,
 			url: datoscursos.url,
-			descripcion: datoscursos.url
+			descripcion: datoscursos.descripcion
 		};
 		try {
 			loading = true;
@@ -91,19 +95,16 @@
 			loading = true;
 			const result = await fetch(`${API_URL}/Cursos/` + datoscursos.id, {
 				method: 'PUT',
-				body: JSON.stringify(datoscursos),
+				body: JSON.stringify({ editNombre, editDescripcion, editUrl }),
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			});
 
 			if (result.ok) {
-				cursos = cursos.map((curso) => {
-					if (curso.id != datoscursos.id) {
-						return curso;
-					}
-					return datoscursos;
-				});
+				datoscursos.nombre = editNombre;
+				datoscursos.descripcion = editDescripcion;
+				datoscursos.url = editUrl;
 			}
 		} catch (error) {
 			console.error(error);
@@ -129,7 +130,7 @@
 				<tr>
 					<th>
 						<button class="btn btn-success" on:click|preventDefault={agregarcurso}
-							>AgregarCurso</button
+							>Agregar Curso</button
 						>
 					</th>
 					<th>
@@ -174,11 +175,6 @@
 							<label for="nome">url</label>
 						</div>
 					</th>
-					<th>
-						<button class="btn btn-success" on:click|preventDefault={actualizarcurso}
-							>Actualizar</button
-						>
-					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -188,6 +184,7 @@
 						nombre={curso.nombre}
 						descripcion={curso.descripcion}
 						url={curso.url}
+						{loading}
 						on:deleteClicked={deleteCurso}
 						on:editarClicked={editCurso}
 					/>

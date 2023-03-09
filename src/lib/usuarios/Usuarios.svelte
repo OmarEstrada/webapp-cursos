@@ -17,6 +17,11 @@
 		password: ''
 	};
 
+	export let editNombre;
+	export let editemail;
+	export let editprovider;
+	export let editpassword;
+
 	const cargarContenido = async () => {
 		try {
 			await wait(1000);
@@ -95,20 +100,17 @@
 			loading = true;
 			const result = await fetch(`${API_URL}/Usuarios/` + datosusuarios.id, {
 				method: 'PUT',
-				body: JSON.stringify(datosusuarios),
+				body: JSON.stringify({ editNombre, editemail, editprovider, editpassword }),
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			});
 
 			if (result.ok) {
-				usuarios = usuarios.map((usuario) => {
-					if (usuario.id != datosusuarios.id) {
-						return usuario;
-					}
-
-					return datosusuarios;
-				});
+				datosusuarios.nombre = editNombre;
+				datosusuarios.email = editemail;
+				datosusuarios.provider = editprovider;
+				datosusuarios.password = editpassword;
 			}
 		} catch (error) {
 			console.error(error);
@@ -128,14 +130,14 @@
 				<tr>
 					<th> Actions </th>
 					<th>Nombre</th>
-					<th>email</th>
-					<th>provider</th>
-					<th>password</th>
+					<th>Email</th>
+					<th>Provider</th>
+					<th>Password</th>
 				</tr>
 				<tr>
 					<th>
 						<button class="btn btn-success" on:click|preventDefault={agregarUsuario}
-							>agregarRuta</button
+							>Agregar Usuario</button
 						>
 					</th>
 					<th>
@@ -194,11 +196,6 @@
 							<label for="nome">Password</label>
 						</div>
 					</th>
-					<th>
-						<button class="btn btn-success" on:click|preventDefault={actualizarusuario}
-							>Actualizar</button
-						>
-					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -210,6 +207,7 @@
 						url={usuario.url}
 						provider={usuario.provider}
 						password={usuario.password}
+						{loading}
 						on:deleteClicked={deleteUsuario}
 						on:editarClicked={editUsuario}
 					/>

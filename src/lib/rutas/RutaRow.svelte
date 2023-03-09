@@ -14,21 +14,71 @@
 	export let Created_at: string;
 	export let Updated_by: string;
 	export let Updated_at: string;
+	export let loading: any;
 
 	let showingDeleteModal = false;
+	let showingEditModal = false;
 
-	async function clickEdit() {
-		dispatch('editarClicked', { id });
-	}
+	let editNombre = '';
+	let editActivo = '';
+	let editCreated_by = '';
+	let editCreated_at = '';
+	let editUpdated_by = '';
+	let editUpdated_at = '';
+
+	async function clickEdit() {}
 	function confirmDelete() {
 		//todo: confirm action
 		dispatch('deleteClicked', { id });
 	}
+
+	const saveChanges = async () => {
+		try {
+			loading = true;
+			const result = await fetch(`${API_URL}/Rutas/` + id, {
+				method: 'PUT',
+				body: JSON.stringify({
+					nombre: editNombre,
+					Activo: editActivo,
+					Created_by: editCreated_by,
+					Created_at: editCreated_at,
+					Updated_by: editUpdated_by,
+					Updated_at: editUpdated_at
+				}),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			});
+
+			if (result.ok) {
+				nombre = editNombre;
+				Activo = editActivo;
+				Created_by = editCreated_by;
+				Created_at = editCreated_at;
+				Updated_by = editUpdated_by;
+				Updated_at = editUpdated_at;
+			}
+		} catch (error) {
+			console.error(error);
+		} finally {
+			loading = false;
+		}
+	};
+
+	const editStart = () => {
+		editNombre = nombre;
+		editActivo = Activo;
+		editCreated_by = Created_by;
+		editCreated_at = Created_at;
+		editUpdated_by = Updated_by;
+		editUpdated_at = Updated_at;
+		showingEditModal = true;
+	};
 </script>
 
 <tr>
 	<td>
-		<button class="btn btn-primary" on:click={clickEdit}>EDIT</button>
+		<button class="btn btn-primary" on:click={editStart}>EDIT</button>
 		<button class="btn btn-error" on:click={() => (showingDeleteModal = true)}>DELETE</button>
 	</td>
 	<td>
@@ -71,6 +121,40 @@
 	>
 		<h3 class="font-bold text-lg">Eliminar Ruta</h3>
 		<p class="py-4">¿Está seguro que desea eliminar esta ruta?</p>
+	</Modal>
+{/if}
+
+{#if showingEditModal}
+	<Modal
+		confirmBtnText="Save Changes"
+		on:cancel={() => (showingEditModal = false)}
+		on:confirm={saveChanges}
+	>
+		<h3 class="font-bold text-lg">Editar Prueba</h3>
+		<p class="py-4">
+			<label for="name">Nombre:</label>
+			<input type="text" bind:value={editNombre} />
+		</p>
+		<p class="py-4">
+			<label for="name">Activo:</label>
+			<input type="text" bind:value={editActivo} />
+		</p>
+		<p class="py-4">
+			<label for="name">Created_by:</label>
+			<input type="text" bind:value={editCreated_by} />
+		</p>
+		<p class="py-4">
+			<label for="name">Created_at:</label>
+			<input type="text" bind:value={editCreated_at} />
+		</p>
+		<p class="py-4">
+			<label for="name">Updated_by:</label>
+			<input type="text" bind:value={editUpdated_by} />
+		</p>
+		<p class="py-4">
+			<label for="name">Updated_at:</label>
+			<input type="text" bind:value={editUpdated_at} />
+		</p>
 	</Modal>
 {/if}
 

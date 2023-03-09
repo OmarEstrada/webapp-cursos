@@ -17,6 +17,13 @@
 		Updated_at: ''
 	};
 
+	export let editNombre;
+	export let editActivo;
+	export let editCreated_by;
+	export let editCreated_at;
+	export let editUpdated_by;
+	export let editUpdated_at;
+
 	const cargarContenido = async () => {
 		try {
 			await wait(1000);
@@ -97,20 +104,26 @@
 			loading = true;
 			const result = await fetch(`${API_URL}/Rutas/` + datosrutas.id, {
 				method: 'PUT',
-				body: JSON.stringify(datosrutas),
+				body: JSON.stringify({
+					editNombre,
+					editActivo,
+					editCreated_by,
+					editCreated_at,
+					editUpdated_by,
+					editUpdated_at
+				}),
 				headers: {
 					'Content-Type': 'application/json'
 				}
 			});
 
 			if (result.ok) {
-				rutas = rutas.map((ruta) => {
-					if (ruta.id != datosrutas.id) {
-						return ruta;
-					}
-
-					return datosrutas;
-				});
+				datosrutas.nombre = editNombre;
+				datosrutas.Activo = editActivo;
+				datosrutas.Created_by = editCreated_by;
+				datosrutas.Created_at = editCreated_at;
+				datosrutas.Updated_by = editUpdated_by;
+				datosrutas.Updated_at = editUpdated_at;
 			}
 		} catch (error) {
 			console.error(error);
@@ -139,7 +152,7 @@
 				<tr>
 					<th>
 						<button class="btn btn-success" on:click|preventDefault={agregarRuta}
-							>agregarRuta</button
+							>Agregar Ruta</button
 						>
 					</th>
 					<th>
@@ -226,11 +239,6 @@
 							<label for="nome">Updated_at</label>
 						</div>
 					</th>
-					<th>
-						<button class="btn btn-success" on:click|preventDefault={actualizarruta}
-							>Actualizar</button
-						>
-					</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -244,6 +252,7 @@
 						Created_at={ruta.Created_at}
 						Updated_by={ruta.Updated_by}
 						Updated_at={ruta.Updated_at}
+						{loading}
 						on:deleteClicked={deleteRuta}
 						on:editarClicked={editRuta}
 					/>
