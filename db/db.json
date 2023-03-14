@@ -1,10 +1,16 @@
 {
   "Pruebas": [
     {
-      "id": 1,
       "nombre": "hola",
-      "url": "RLU",
-      "descripcion": "RLU"
+      "descripcion": "RLU",
+      "url": 3,
+      "id": 1
+    },
+    {
+      "nombre": "Ajustes",
+      "descripcion": "Combo Lunes",
+      "url": 4,
+      "id": 2
     }
   ],
   "Usuarios": [
@@ -102,13 +108,13 @@
   ],
   "Rutas": [
     {
-      "id": 1,
       "nombre": "Ruta de aprendizaje para desarrolladores que inician en la programación web",
-      "Activo": "1",
+      "Activo": 1,
       "Created_by": "2",
       "Created_at": "15/12/2022",
       "Updated_by": "null",
-      "Updated_at": "null"
+      "Updated_at": "null",
+      "id": 1
     },
     {
       "id": 2,

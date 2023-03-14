@@ -115,21 +115,37 @@
 		on:confirm={saveChanges}
 	>
 		<h3 class="font-bold text-lg">Editar Usuarios</h3>
-		<p class="py-4">
-			<label for="name">Nombre:</label>
-			<input type="text" bind:value={editNombre} />
-		</p>
-		<p class="py-4">
-			<label for="name">email:</label>
-			<input type="text" bind:value={editemail} />
-		</p>
-		<p class="py-4">
-			<label for="name">Provider:</label>
-			<input type="text" bind:value={editprovider} />
-		</p>
-		<p class="py-4">
-			<label for="name">Password:</label>
-			<input type="text" bind:value={editpassword} />
-		</p>
+		<tr>
+			<td>
+				<label for="name">Nombre:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editNombre} />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">Email:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editemail} />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">Provider:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editprovider} />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">Password:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editpassword} />
+			</td>
+		</tr>
 	</Modal>
 {/if}

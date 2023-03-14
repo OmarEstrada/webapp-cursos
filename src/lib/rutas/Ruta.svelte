@@ -174,7 +174,7 @@
 							<input
 								bind:value={datosrutas.Activo}
 								required
-								type="text"
+								type="number"
 								name=""
 								id="nome"
 								class="input"

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Ruta from './Ruta.svelte';
 	import { goto } from '$app/navigation';
 	import Modal from '$lib/common/Modal.svelte';
 	import { stringify } from 'postcss';
@@ -130,30 +131,31 @@
 		on:cancel={() => (showingEditModal = false)}
 		on:confirm={saveChanges}
 	>
-		<h3 class="font-bold text-lg">Editar Prueba</h3>
-		<p class="py-4">
-			<label for="name">Nombre:</label>
-			<input type="text" bind:value={editNombre} />
-		</p>
-		<p class="py-4">
-			<label for="name">Activo:</label>
-			<input type="text" bind:value={editActivo} />
-		</p>
-		<p class="py-4">
-			<label for="name">Created_by:</label>
-			<input type="text" bind:value={editCreated_by} />
-		</p>
-		<p class="py-4">
-			<label for="name">Created_at:</label>
-			<input type="text" bind:value={editCreated_at} />
-		</p>
-		<p class="py-4">
-			<label for="name">Updated_by:</label>
-			<input type="text" bind:value={editUpdated_by} />
-		</p>
-		<p class="py-4">
-			<label for="name">Updated_at:</label>
-			<input type="text" bind:value={editUpdated_at} />
-		</p>
+		<h3 class="font-bold text-lg">Editar Ruta</h3>
+		<tr>
+			<td>
+				<label class="espacio" for="name">Nombre:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editNombre} />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label class="espacio" for="name">Activo:</label>
+			</td>
+			<td>
+				<input type="number" bind:value={editActivo} />
+			</td>
+		</tr>
 	</Modal>
 {/if}
+
+<style>
+	.py-4 {
+		width: 50%;
+	}
+	.titulo {
+		width: 30%;
+	}
+</style>

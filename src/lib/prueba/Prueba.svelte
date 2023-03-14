@@ -167,7 +167,7 @@
 							<input
 								bind:value={datospruebas.url}
 								required
-								type="text"
+								type="number"
 								name=""
 								id="nome"
 								class="input"

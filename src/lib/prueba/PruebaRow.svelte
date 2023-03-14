@@ -104,17 +104,29 @@
 		on:confirm={saveChanges}
 	>
 		<h3 class="font-bold text-lg">Editar Prueba</h3>
-		<p class="py-4">
-			<label for="name">Nombre:</label>
-			<input type="text" bind:value={editNombre} />
-		</p>
-		<p class="py-4">
-			<label for="name">Descripción:</label>
-			<input type="text" bind:value={editDescripcion} />
-		</p>
-		<p class="py-4">
-			<label for="name">URL:</label>
-			<input type="text" bind:value={editUrl} />
-		</p>
+		<tr>
+			<td>
+				<label for="name">Nombre:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editNombre} />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">Descripción:</label>
+			</td>
+			<td>
+				<input type="text" bind:value={editDescripcion} />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">URL:</label>
+			</td>
+			<td>
+				<input type="number" bind:value={editUrl} />
+			</td>
+		</tr>
 	</Modal>
 {/if}
