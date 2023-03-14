@@ -150,12 +150,3 @@
 		</tr>
 	</Modal>
 {/if}
-
-<style>
-	.py-4 {
-		width: 50%;
-	}
-	.titulo {
-		width: 30%;
-	}
-</style>
