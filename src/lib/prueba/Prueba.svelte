@@ -153,13 +153,18 @@
 							<input
 								bind:value={datospruebas.descripcion}
 								required
-								type="text"
-								name=""
-								id="nome"
-								class="input"
-								aria-describedby="help"
-							/>
-							<label for="nome">Descripcion</label>
+								type="checkbox"
+								name="Ruta 1"
+								class="box"
+							/>Ruta 1
+							<input
+								bind:value={datospruebas.descripcion}
+								required
+								type="checkbox"
+								name="Ruta 2"
+								class="box"
+							/>Ruta 2
+							<label for="nome" />
 						</div>
 					</th>
 					<th>
@@ -217,6 +222,10 @@
 		color: rgb(16, 54, 119);
 		cursor: text;
 		transition: 0.5s ease-in-out;
+	}
+	div.single-input .box {
+		width: 25px;
+		height: 25px;
 	}
 	div.single-input .input {
 		width: 100%;

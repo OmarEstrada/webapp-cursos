@@ -1,2 +1,5 @@
+<script>
+	import Miscursos from '$lib/mis-cursos/miscursos.svelte';
+</script>
 
-<div>Mis Cursos</div>
+<Miscursos />
