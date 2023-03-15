@@ -11,7 +11,9 @@
 		id: null,
 		nombre: '',
 		url: '',
-		descripcion: ''
+		descripcion: '',
+		ruta1: false,
+		ruta2: false
 	};
 
 	export let editNombre;
@@ -66,7 +68,9 @@
 			id: datospruebas.id,
 			nombre: datospruebas.nombre,
 			url: datospruebas.url,
-			descripcion: datospruebas.descripcion
+			descripcion: datospruebas.descripcion,
+			ruta1: datospruebas.ruta1,
+			ruta2: datospruebas.ruta2
 		};
 		try {
 			loading = true;
@@ -151,14 +155,14 @@
 					<th>
 						<div class="single-input">
 							<input
-								bind:value={datospruebas.descripcion}
+								bind:checked={datospruebas.ruta1}
 								required
 								type="checkbox"
 								name="Ruta 1"
 								class="box"
 							/>Ruta 1
 							<input
-								bind:value={datospruebas.descripcion}
+								bind:checked={datospruebas.ruta2}
 								required
 								type="checkbox"
 								name="Ruta 2"
@@ -190,6 +194,8 @@
 						nombre={prueba.nombre}
 						descripcion={prueba.descripcion}
 						url={prueba.url}
+						ruta1={prueba.ruta1}
+						ruta2={prueba.ruta2}
 						{loading}
 						on:deleteClicked={deletePrueba}
 						on:editarClicked={editPrueba}

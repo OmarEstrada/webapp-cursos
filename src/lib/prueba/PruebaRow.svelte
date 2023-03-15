@@ -12,6 +12,8 @@
 	export let url: string;
 	export let descripcion: string;
 	export let loading: any;
+	export let ruta1 = false;
+	export let ruta2 = false;
 
 	let showingDeleteModal = false;
 	let showingEditModal = false;
@@ -19,6 +21,8 @@
 	let editNombre = '';
 	let editDescripcion = '';
 	let editUrl = '';
+	let editRuta1 = false;
+	let editRuta2 = false;
 
 	async function clickEdit() {}
 	function confirmDelete() {
@@ -31,7 +35,13 @@
 			loading = true;
 			const result = await fetch(`${API_URL}/Pruebas/` + id, {
 				method: 'PUT',
-				body: JSON.stringify({ nombre: editNombre, descripcion: editDescripcion, url: editUrl }),
+				body: JSON.stringify({
+					nombre: editNombre,
+					descripcion: editDescripcion,
+					url: editUrl,
+					ruta1: editRuta1,
+					ruta2: editRuta2
+				}),
 				headers: {
 					'Content-Type': 'application/json'
 				}
@@ -41,6 +51,8 @@
 				nombre = editNombre;
 				descripcion = editDescripcion;
 				url = editUrl;
+				ruta1 = editRuta1;
+				ruta2 = editRuta2;
 			}
 		} catch (error) {
 			console.error(error);
@@ -54,6 +66,8 @@
 		editNombre = nombre;
 		editDescripcion = descripcion;
 		editUrl = url;
+		editRuta1 = ruta1;
+		editRuta2 = ruta2;
 		showingEditModal = true;
 	};
 </script>
@@ -80,6 +94,9 @@
 	</td>
 	<td>
 		{descripcion}
+
+		<p>Ruta1: {ruta1}</p>
+		<p>Ruta2: {ruta2}</p>
 	</td>
 	<td>
 		{url}
