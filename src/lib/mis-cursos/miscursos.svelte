@@ -41,7 +41,6 @@
 			<tbody>
 				{#each miscrusos as miscruso}
 					<MiscursosRow
-						id={miscruso.id}
 						nombre={miscruso.nombre}
 						descripcion={miscruso.descripcion}
 						url={miscruso.url}

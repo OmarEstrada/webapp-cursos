@@ -11,6 +11,8 @@
 		id: null,
 		nombre: '',
 		Activo: '',
+		ruta1: false,
+		ruta2: false,
 		Created_by: '',
 		Created_at: '',
 		Updated_by: '',
@@ -71,7 +73,8 @@
 		const nuevoruta = {
 			id: datosrutas.id,
 			nombre: datosrutas.nombre,
-			Activo: datosrutas.Activo,
+			ruta1: datosrutas.ruta1,
+			ruta2: datosrutas.ruta2,
 			Created_by: datosrutas.Created_by,
 			Created_at: datosrutas.Created_at,
 			Updated_by: datosrutas.Updated_by,
@@ -143,7 +146,7 @@
 				<tr>
 					<th>Actions </th>
 					<th>Nombre</th>
-					<th>Activo</th>
+					<th>Activo Ruta</th>
 					<th>Created_by</th>
 					<th>Created_at</th>
 					<th>Updated_by</th>
@@ -172,15 +175,19 @@
 					<th>
 						<div class="single-input">
 							<input
-								bind:value={datosrutas.Activo}
+								bind:checked={datosrutas.ruta1}
 								required
-								type="number"
-								name=""
-								id="nome"
-								class="input"
-								aria-describedby="help"
-							/>
-							<label for="nome">Activo</label>
+								type="checkbox"
+								name="Ruta 1"
+								class="box"
+							/>Ruta 1
+							<input
+								bind:checked={datosrutas.ruta2}
+								required
+								type="checkbox"
+								name="Ruta 2"
+								class="box"
+							/>Ruta 2
 						</div>
 					</th>
 					<th>
@@ -246,8 +253,9 @@
 					<RutaRow
 						id={ruta.id}
 						nombre={ruta.nombre}
-						Activo={ruta.Activo}
 						url={ruta.url}
+						ruta1={ruta.ruta1}
+						ruta2={ruta.ruta2}
 						Created_by={ruta.Created_by}
 						Created_at={ruta.Created_at}
 						Updated_by={ruta.Updated_by}

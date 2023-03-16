@@ -24,7 +24,6 @@
 	let editRuta1 = false;
 	let editRuta2 = false;
 
-	async function clickEdit() {}
 	function confirmDelete() {
 		//todo: confirm action
 		dispatch('deleteClicked', { id });
@@ -134,7 +133,10 @@
 				<label for="name">Descripción:</label>
 			</td>
 			<td>
-				<input type="text" bind:value={editDescripcion} />
+				<input bind:checked={editRuta1} required type="checkbox" name="Ruta 1" class="box" />Ruta 1
+			</td>
+			<td>
+				<input bind:checked={editRuta2} required type="checkbox" name="Ruta 1" class="box" />Ruta 2
 			</td>
 		</tr>
 		<tr>

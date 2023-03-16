@@ -3,7 +3,6 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let id: string;
 	export let nombre: string;
 	export let url: string;
 	export let descripcion: string;

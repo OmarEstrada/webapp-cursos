@@ -15,36 +15,20 @@
       "ruta2": false
     },
     {
-      "id": 4,
       "nombre": "spiegato spiegato",
-      "url": 3,
       "descripcion": "",
+      "url": 3,
       "ruta1": "false",
-      "ruta2": "false"
+      "ruta2": true,
+      "id": 4
     },
     {
-      "id": 5,
       "nombre": "spiegato spiegato",
+      "descripcion": "",
       "url": 3,
-      "descripcion": "",
-      "ruta1": "false",
-      "ruta2": "false"
-    },
-    {
-      "id": 6,
-      "nombre": "",
-      "url": "",
-      "descripcion": "",
-      "ruta1": "false",
-      "ruta2": false
-    },
-    {
-      "id": 7,
-      "nombre": "",
-      "url": "",
-      "descripcion": "",
       "ruta1": true,
-      "ruta2": false
+      "ruta2": "false",
+      "id": 5
     }
   ],
   "Usuarios": [

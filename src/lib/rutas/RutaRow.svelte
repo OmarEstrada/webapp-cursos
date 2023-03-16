@@ -10,18 +10,20 @@
 	export let id: string;
 	export let url: string;
 	export let nombre: string;
-	export let Activo: string;
 	export let Created_by: string;
 	export let Created_at: string;
 	export let Updated_by: string;
 	export let Updated_at: string;
 	export let loading: any;
+	export let ruta1 = false;
+	export let ruta2 = false;
 
 	let showingDeleteModal = false;
 	let showingEditModal = false;
 
 	let editNombre = '';
-	let editActivo = '';
+	let editRuta1 = false;
+	let editRuta2 = false;
 	let editCreated_by = '';
 	let editCreated_at = '';
 	let editUpdated_by = '';
@@ -40,7 +42,8 @@
 				method: 'PUT',
 				body: JSON.stringify({
 					nombre: editNombre,
-					Activo: editActivo,
+					ruta1: editRuta1,
+					ruta2: editRuta2,
 					Created_by: editCreated_by,
 					Created_at: editCreated_at,
 					Updated_by: editUpdated_by,
@@ -53,7 +56,8 @@
 
 			if (result.ok) {
 				nombre = editNombre;
-				Activo = editActivo;
+				ruta1 = editRuta1;
+				ruta2 = editRuta2;
 				Created_by = editCreated_by;
 				Created_at = editCreated_at;
 				Updated_by = editUpdated_by;
@@ -68,7 +72,8 @@
 
 	const editStart = () => {
 		editNombre = nombre;
-		editActivo = Activo;
+		editRuta1 = ruta1;
+		editRuta2 = ruta2;
 		editCreated_by = Created_by;
 		editCreated_at = Created_at;
 		editUpdated_by = Updated_by;
@@ -98,7 +103,8 @@
 		</div>
 	</td>
 	<td>
-		{Activo}
+		<p>Ruta1: {ruta1}</p>
+		<p>Ruta2: {ruta2}</p>
 	</td>
 	<td>
 		{Created_by}
@@ -145,7 +151,10 @@
 				<label class="espacio" for="name">Activo:</label>
 			</td>
 			<td>
-				<input type="number" bind:value={editActivo} />
+				<input bind:checked={editRuta1} required type="checkbox" name="Ruta 1" class="box" />Ruta 1
+			</td>
+			<td>
+				<input bind:checked={editRuta2} required type="checkbox" name="Ruta 1" class="box" />Ruta 2
 			</td>
 		</tr>
 	</Modal>
